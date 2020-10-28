@@ -141,8 +141,6 @@ int 		channelhandles[NUM_CHANNELS];
 // Used to catch duplicates (like chainsaw).
 int		channelids[NUM_CHANNELS];			
 
-// Pitch to stepping lookup, unused.
-int		steptable[256];
 
 // Volume lookups.
 int		vol_lookup[128*256];
@@ -400,20 +398,12 @@ void I_SetChannels()
   //  the mixing process. 
   int		i;
   int		j;
-    
-  int*	steptablemid = steptable + 128;
   
   // Okay, reset internal mixing channels to zero.
   /*for (i=0; i<NUM_CHANNELS; i++)
   {
     channels[i] = 0;
   }*/
-
-  // This table provides step widths for pitch parameters.
-  // I fail to see that this is currently used.
-  for (i=-128 ; i<128 ; i++)
-    steptablemid[i] = (int)(pow(2.0, (i/64.0))*65536.0);
-  
   
   // Generates volume lookup tables
   //  which also turn the unsigned samples
@@ -491,9 +481,6 @@ I_StartSound
     // Debug.
     //fprintf( stderr, "starting sound %d", id );
     
-    // Returns a handle (not used).
-    id = addsfx( id, vol, steptable[pitch], sep );
-
     // fprintf( stderr, "/handle is %d\n", id );
     
     return id;
