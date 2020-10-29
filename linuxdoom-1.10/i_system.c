@@ -75,7 +75,7 @@ int  I_GetHeapSize (void)
 
 byte* I_ZoneBase (int*	size)
 {
-	byte *zonenum;
+	byte *zonemem;
     *size = mb_used*1024*1024;
     zonemem = malloc (*size);
     printf("zone memory: %x, %x allocated for zone\n", 
