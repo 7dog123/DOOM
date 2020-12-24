@@ -129,8 +129,6 @@ int		channelids[8];
 
 int		snd_verbose=1;
 
-int		steptable[256];
-
 int		vol_lookup[128*256];
 
 static void derror(char* msg)
@@ -539,8 +537,6 @@ void initdata(void)
 
     int		i;
     int		j;
-    
-    int*	steptablemid = steptable + 128;
 
     for (i=0 ;
 	 i<sizeof(channels)/sizeof(unsigned char *) ;
@@ -550,9 +546,6 @@ void initdata(void)
     }
     
     gettimeofday(&last, &whocares);
-
-    for (i=-128 ; i<128 ; i++)
-	steptablemid[i] = pow(2.0, (i/64.0))*65536.0;
 
     // generates volume lookup tables
     //  which also turn the unsigned samples
@@ -682,7 +675,6 @@ main
 			    //	p<snd#><step><vol><sep>
 			    sndnum = (commandbuf[0]<<4) + commandbuf[1];
 			    step = (commandbuf[2]<<4) + commandbuf[3];
-			    step = steptable[step];
 			    vol = (commandbuf[4]<<4) + commandbuf[5];
 			    sep = (commandbuf[6]<<4) + commandbuf[7];
 
