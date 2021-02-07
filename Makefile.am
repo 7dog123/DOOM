@@ -21,4 +21,4 @@ EXTRA_DIST = \
 MAINTAINERCLEANFILES =  $(AUX_DIST_GEN)
 
 docdir=$(prefix)/share/doc/@PACKAGE@
-SUBDIRS=src
+SUBDIRS=doom
