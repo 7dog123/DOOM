@@ -23,10 +23,7 @@
 #ifndef __W_WAD__
 #define __W_WAD__
 
-
-#ifdef __GNUG__
-#pragma interface
-#endif
+#include <stdio.h>
 
 
 //
@@ -56,7 +53,7 @@ typedef struct
 typedef struct
 {
     char	name[8];
-    int		handle;
+    int		*handle;
     int		position;
     int		size;
 } lumpinfo_t;
