@@ -48,7 +48,7 @@ boolean		grabMouse;
 // replace each 320x200 pixel with multiply*multiply pixels.
 // According to Dave Taylor, it still is a bonehead thing
 // to use ....
-static int	multiply=1;
+static int	multiply=2;
 
 //
 // Translates the SDL key
@@ -345,7 +345,6 @@ void I_FinishUpdate (void)
 	    screens[0][ (SCREENHEIGHT-1)*SCREENWIDTH + i] = 0x0;
     
     }
-#if 0
     // scales the screen size before blitting it
     if (multiply == 2)
     {
@@ -355,10 +354,14 @@ void I_FinishUpdate (void)
 	unsigned int twoopixels;
 	unsigned int twomoreopixels;
 	unsigned int fouripixels;
+	unsigned int X_width = screen->pitch;
+	Uint8 *screen_pixels = (Uint8 *) screen->pixels;
+	
+	SDL_LockSurfaceScreen(screen);
 
 	ilineptr = (unsigned int *) (screens[0]);
 	for (i=0 ; i<2 ; i++)
-	    olineptrs[i] = (unsigned int *) &image->data[i*X_width];
+	    olineptrs[i] = (unsigned int *) &screen_pixels[i*X_width];
 
 	y = SCREENHEIGHT;
 	while (y--)
@@ -388,8 +391,9 @@ void I_FinishUpdate (void)
 	    olineptrs[0] += X_width/4;
 	    olineptrs[1] += X_width/4;
 	}
-
+		SDL_UnlockSurface(screen);
     }
+#if 0
     else if (multiply == 3)
     {
 	unsigned int *olineptrs[3];
@@ -495,9 +499,9 @@ void I_InitGraphics(void)
 	
     SDL_Init(SDL_INIT_VIDEO);
 
-//    flags |= SDL_FULLSCREEN;
+ 	flags |= SDL_FULLSCREEN;
 
-    screen = SDL_SetVideoMode(SCREENWIDTH, SCREENHEIGHT, 8, flags);
+    screen = SDL_SetVideoMode(SCREENWIDTH*multiply, SCREENHEIGHT*multiply, 8, flags);
 
     if (screen == NULL)
     {
@@ -515,7 +519,7 @@ void I_InitGraphics(void)
 }
 
 
-unsigned	exptable[256];
+unsigned exptable[256];
 
 void InitExpand (void)
 {
@@ -525,7 +529,7 @@ void InitExpand (void)
 	exptable[i] = i | (i<<8) | (i<<16) | (i<<24);
 }
 
-double		exptable2[256*256];
+double	 exptable2[256*256];
 
 void InitExpand2 (void)
 {
@@ -539,7 +543,6 @@ void InitExpand2 (void)
 	unsigned	u[2];
     } pixel;
 	
-    printf ("building exptable2...\n");
     exp = exptable2;
     for (i=0 ; i<256 ; i++)
     {
@@ -549,8 +552,7 @@ void InitExpand2 (void)
 	    pixel.u[1] = j | (j<<8) | (j<<16) | (j<<24);
 	    *exp++ = pixel.d;
 	}
-    }
-    printf ("done.\n");
+  }
 }
 
 int	inited;
