@@ -304,7 +304,7 @@ void I_StartTic (void)
 
 	    doPointerWarp = POINTER_WARP_COUNTDOWN;
 	}
-    }
+  }
 
     mousemoved = false;
 #endif
@@ -499,6 +499,7 @@ void I_InitGraphics(void)
 	
     SDL_Init(SDL_INIT_VIDEO);
 
+	flags |= SDL_SWSURFACE | SDL_HWPALETTE:
  	flags |= SDL_FULLSCREEN;
 
     screen = SDL_SetVideoMode(SCREENWIDTH*multiply, SCREENHEIGHT*multiply, 8, flags);
