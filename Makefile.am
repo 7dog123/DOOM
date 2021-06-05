@@ -4,11 +4,11 @@ AUX_DIST_GEN =                          \
         $(ac_aux_dir)/install-sh        \
         $(ac_aux_dir)/missing
 
-EXTRA_DIST = \
-	$(AUX_DIST_GEN)         \
-        config.h    	        \
-        AUTHORS                 \
-        NEWS                    \
+EXTRA_DIST =        \
+	$(AUX_DIST_GEN) \
+    config.h    	\
+    AUTHORS         \
+    NEWS            \
 	Changelog		\
 	DOOMLIC.TXT		\
 	FILES			\
@@ -17,6 +17,7 @@ EXTRA_DIST = \
 	README.b		\
 	README.book		\
 	README.gl		\
+	README.sound    \
 	TODO
 
 MAINTAINERCLEANFILES =  $(AUX_DIST_GEN)
