@@ -1,4 +1,4 @@
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- C++ -*-
 //-----------------------------------------------------------------------------
 //
 // $Id:$
@@ -31,9 +31,9 @@
 
 void
 R_RenderMaskedSegRange
-( drawseg_t*	ds,
-  int		x1,
-  int		x2 );
+(drawseg_t*	ds,
+ int		x1,
+ int		x2);
 
 
 #endif

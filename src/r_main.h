@@ -1,4 +1,4 @@
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- C++ -*-
 //-----------------------------------------------------------------------------
 //
 // $Id:$
@@ -90,64 +90,64 @@ extern lighttable_t*	fixedcolormap;
 // Blocky/low detail mode.
 //B remove this?
 //  0 = high, 1 = low
-extern	int		detailshift;	
+extern	int		detailshift;
 
 
 //
 // Function pointers to switch refresh/drawing functions.
 // Used to select shadow mode etc.
 //
-extern void		(*colfunc) (void);
-extern void		(*basecolfunc) (void);
-extern void		(*fuzzcolfunc) (void);
+extern void	(*colfunc)(void);
+extern void	(*basecolfunc)(void);
+extern void	(*fuzzcolfunc)(void);
 // No shadow effects on floors.
-extern void		(*spanfunc) (void);
+extern void	(*spanfunc)(void);
 
 
 //
 // Utility functions.
 int
 R_PointOnSide
-( fixed_t	x,
-  fixed_t	y,
-  node_t*	node );
+(fixed_t	x,
+ fixed_t	y,
+ node_t*	node);
 
 int
 R_PointOnSegSide
-( fixed_t	x,
-  fixed_t	y,
-  seg_t*	line );
+(fixed_t	x,
+ fixed_t	y,
+ seg_t*	line);
 
 angle_t
 R_PointToAngle
-( fixed_t	x,
-  fixed_t	y );
+(fixed_t	x,
+ fixed_t	y);
 
 angle_t
 R_PointToAngle2
-( fixed_t	x1,
-  fixed_t	y1,
-  fixed_t	x2,
-  fixed_t	y2 );
+(fixed_t	x1,
+ fixed_t	y1,
+ fixed_t	x2,
+ fixed_t	y2);
 
 fixed_t
 R_PointToDist
-( fixed_t	x,
-  fixed_t	y );
+(fixed_t	x,
+ fixed_t	y);
 
 
-fixed_t R_ScaleFromGlobalAngle (angle_t visangle);
+fixed_t R_ScaleFromGlobalAngle(angle_t visangle);
 
 subsector_t*
 R_PointInSubsector
-( fixed_t	x,
-  fixed_t	y );
+(fixed_t	x,
+ fixed_t	y);
 
 void
 R_AddPointToBox
-( int		x,
-  int		y,
-  fixed_t*	box );
+(int		x,
+ int		y,
+ fixed_t*	box);
 
 
 
@@ -156,13 +156,13 @@ R_AddPointToBox
 //
 
 // Called by G_Drawer.
-void R_RenderPlayerView (player_t *player);
+void R_RenderPlayerView(player_t *player);
 
 // Called by startup code.
-void R_Init (void);
+void R_Init(void);
 
 // Called by M_Responder.
-void R_SetViewSize (int blocks, int detail);
+void R_SetViewSize(int blocks, int detail);
 
 #endif
 //-----------------------------------------------------------------------------

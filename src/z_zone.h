@@ -1,4 +1,4 @@
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- C++ -*-
 //-----------------------------------------------------------------------------
 //
 // $Id:$
@@ -44,25 +44,25 @@
 #define PU_CACHE		101
 
 
-void	Z_Init (void);
-void*	Z_Malloc (int size, int tag, void *ptr);
-void    Z_Free (void *ptr);
-void    Z_FreeTags (int lowtag, int hightag);
-void    Z_DumpHeap (int lowtag, int hightag);
-void    Z_FileDumpHeap (FILE *f);
-void    Z_CheckHeap (void);
-void    Z_ChangeTag2 (void *ptr, int tag);
-int     Z_FreeMemory (void);
+void	Z_Init(void);
+void*	Z_Malloc(int size, int tag, void *ptr);
+void    Z_Free(void *ptr);
+void    Z_FreeTags(int lowtag, int hightag);
+void    Z_DumpHeap(int lowtag, int hightag);
+void    Z_FileDumpHeap(FILE *f);
+void    Z_CheckHeap(void);
+void    Z_ChangeTag2(void *ptr, int tag);
+int     Z_FreeMemory(void);
 
 
 typedef struct memblock_s
 {
-    int			size;	// including the header and possibly tiny fragments
-    void**		user;	// NULL if a free block
-    int			tag;	// purgelevel
-    int			id;	// should be ZONEID
-    struct memblock_s*	next;
-    struct memblock_s*	prev;
+	int			size;	// including the header and possibly tiny fragments
+	void**		user;	// NULL if a free block
+	int			tag;	// purgelevel
+	int			id;	// should be ZONEID
+	struct memblock_s*	next;
+	struct memblock_s*	prev;
 } memblock_t;
 
 //

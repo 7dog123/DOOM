@@ -1,4 +1,4 @@
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- C++ -*-
 //-----------------------------------------------------------------------------
 //
 // $Id:$
@@ -39,38 +39,38 @@
 //
 
 // Called by main loop.
-boolean ST_Responder (event_t* ev);
+boolean ST_Responder(event_t* ev);
 
 // Called by main loop.
-void ST_Ticker (void);
+void ST_Ticker(void);
 
 // Called by main loop.
-void ST_Drawer (boolean fullscreen, boolean refresh);
+void ST_Drawer(boolean fullscreen, boolean refresh);
 
 // Called when the console player is spawned on each level.
-void ST_Start (void);
+void ST_Start(void);
 
 // Called by startup code.
-void ST_Init (void);
+void ST_Init(void);
 
 
 
 // States for status bar code.
 typedef enum
 {
-    AutomapState,
-    FirstPersonState
-    
+	AutomapState,
+	FirstPersonState
+
 } st_stateenum_t;
 
 
 // States for the chat code.
 typedef enum
 {
-    StartChatState,
-    WaitDestState,
-    GetChatState
-    
+	StartChatState,
+	WaitDestState,
+	GetChatState
+
 } st_chatstateenum_t;
 
 

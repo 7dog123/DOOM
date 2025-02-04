@@ -1,4 +1,4 @@
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- C++ -*-
 //-----------------------------------------------------------------------------
 //
 // $Id:$
@@ -40,7 +40,7 @@ extern int		rw_stopx;
 extern boolean		segtextured;
 
 // false if the back side is the same plane
-extern boolean		markfloor;		
+extern boolean		markfloor;
 extern boolean		markceiling;
 
 extern boolean		skymap;
@@ -53,15 +53,15 @@ extern lighttable_t**	vscalelight;
 extern lighttable_t**	dscalelight;
 
 
-typedef void (*drawfunc_t) (int start, int stop);
+typedef void (*drawfunc_t)(int start, int stop);
 
 
 // BSP?
-void R_ClearClipSegs (void);
-void R_ClearDrawSegs (void);
+void R_ClearClipSegs(void);
+void R_ClearDrawSegs(void);
 
 
-void R_RenderBSPNode (int bspnum);
+void R_RenderBSPNode(int bspnum);
 
 
 #endif
